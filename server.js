@@ -1313,6 +1313,19 @@ app.delete('/api/delete-car/:id', async (req, res) => {
 });
 
 // ============================================================================
+// HEALTH CHECK
+// ============================================================================
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    service: 'DriveDi API',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// ============================================================================
 // SERVER STARTUP
 // ============================================================================
 
